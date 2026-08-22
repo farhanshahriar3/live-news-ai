@@ -1,0 +1,38 @@
+[project]
+name = "live-news-ai"
+version = "0.1.0"
+description = "A source-grounded live news Q&A assistant powered by Gemini and LangGraph."
+requires-python = ">=3.11"
+dependencies = [
+  "beautifulsoup4>=4.12,<5",
+  "feedparser>=6.0,<7",
+  "fastapi>=0.115,<1",
+  "httpx>=0.27,<1",
+  "langchain>=0.3,<1",
+  "langchain-google-genai>=2.0,<3",
+  "langgraph>=0.2,<1",
+  "pydantic-settings>=2.6,<3",
+  "python-dotenv>=1.0,<2",
+  "streamlit>=1.40,<2",
+  "tavily-python>=0.5,<1",
+  "uvicorn[standard]>=0.32,<1",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=0.24,<1",
+  "ruff>=0.8,<1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
